@@ -1,30 +1,62 @@
 {
     "exclude": {
-        "parents": [
-            "ai + machine learning",
-            "azure ecosystem",
-            "azure stack",
-            "intune",
-            "iot",
-            "management + governance",
-            "migrate",
-            "migration",
-            "mixed reality",
-            "mobile"
-        ],
+        "parents": [],
         "names": [
-            "route filters"
+            "SQL Server Registries",
+            "Virtual Machines",
+            "Disks (Classic)",
+            "Disks Snapshots",
+            "Storage Accounts (Classic)",
+            "User Subscriptions",
+            "Event Grid",
+            "Virtual Networks (Classic)",
+            "Public IP Addresses (Classic)",
+            "SQL Server Stretch",
+            "Arc SQL Server",
+            "TFS",
+            "PostgreSQL",
+            "MySQL"
         ]
     },
     "include": {
-        "parents": [
-            "containers",
-            "networking",
-            "storage",
-            "web"
-        ],
+        "parents": [],
         "names": [
-            "Kubernetes"
+            "Kubernetes Services",
+            "Application Gateway",
+            "App Services",
+            "App Service-Plans",
+            "Function Apps",
+            "Load Balancers",
+            "SignalR",
+            "Redis",
+            "Private Endpoints",
+            "Subnet",
+            "SQL Database",
+            "SQL Server",
+            "Container Registries",
+            "Azure DevOps",
+            "Application Insights",
+            "Virtual Machine",
+            "Disks",
+            "Storage Accounts",
+            "Subscription",
+            "Service Bus",
+            "Network Security Group",
+            "Resource Groups",
+            "Key Vaults",
+            "Managed Identities",
+            "Virtual Networks",
+            "Network Interfaces",
+            "Azure Active Directory",
+            "Public IP Addresses",
+            "Front Door",
+            "Traffic Manager",
+            "Scale-Sets",
+            "Artifacts",
+            "Boards",
+            "Pipelines",
+            "Repos",
+            "Test Plans"
         ]
     }
 }
