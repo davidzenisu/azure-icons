@@ -56,7 +56,8 @@
             "Boards",
             "Pipelines",
             "Repos",
-            "Test Plans"
+            "Test Plans",
+            "Tags"
         ]
     }
 }
