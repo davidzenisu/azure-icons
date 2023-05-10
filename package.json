@@ -5,7 +5,7 @@
   "scripts": {
     "setup": "pwsh ./.scripts/SetupIcons.ps1",
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn setup && next build",
     "start": "next start",
     "lint": "next lint"
   },
