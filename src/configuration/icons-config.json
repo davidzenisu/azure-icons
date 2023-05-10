@@ -57,7 +57,9 @@
             "Pipelines",
             "Repos",
             "Test Plans",
-            "Tags"
+            "Tags",
+            "Visual Studio Code",
+            "Bicep"
         ]
     }
 }
