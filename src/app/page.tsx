@@ -12,36 +12,37 @@ async function getFileList() {
     file.path = file.path.replace(publicDirectory, '');
     const fileRegex = /\d+-icon-service-(?<Name>.*)\.svg/u;
     const fileNameInfo = fileRegex.exec(file.name)?.groups;
-    let changedName = fileNameInfo?.Name ?? '';
-    changedName = changedName.replace('-', ' ');
+    let changedName = fileNameInfo?.Name ?? path.parse(file.name).name;
+    changedName = changedName.replace(/-/g, ' ');
     file.name = changedName;
   });
 
-  const filteredList = fileList.filter(f => {
+  let filteredList = fileList.filter(f => {
     if (f.type !== '.svg') {
       return false;
     }
     if (iconConfig?.include) {
-      if (iconConfig.include.names) {
+      if (iconConfig.include.names?.length > 0) {
         const includeNames = iconConfig.include.names.some(ex => f.name.includes(ex));
         if (!includeNames){
           return false;
         }
       }
-      if (iconConfig.include.parents) {
+      if (iconConfig.include.parents.length > 0) {
         const includeParents = iconConfig.include.parents.some(ex => f.parent.includes(ex));
         if (!includeParents){
           return false;
         }
       }
-    } else if (iconConfig?.exclude) {
-      if (iconConfig.exclude.names) {
+    }
+    if (iconConfig?.exclude) {
+      if (iconConfig.exclude.names.length > 0) {
         const excludeNames = iconConfig.exclude.names.some(ex => f.name.includes(ex));
-        if (!excludeNames){
+        if (excludeNames){
           return false;
         }
       }
-      if (iconConfig.exclude.parents) {
+      if (iconConfig.exclude.parents.length > 0) {
         const excludeParents = iconConfig.exclude.parents.some(ex => f.parent.includes(ex));
         if (excludeParents){
           return false;
@@ -51,7 +52,15 @@ async function getFileList() {
     return true;
   });
 
+  // finally, exclude all duplicates (dirty hack for now)
+  filteredList = filteredList.filter((f1, index, self) =>
+    index === self.findIndex((f2) => (
+      f1.name === f2.name
+    ))
+  );
+
   console.log(filteredList.map(f => f.name));
+  console.log(`So many icons: ${filteredList.length}`);
   return filteredList;
 }
 
