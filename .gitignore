@@ -36,4 +36,4 @@ next-env.d.ts
 
 # temp
 /temp
-/public/icons
+/public/icons/*Azure*
