@@ -15,7 +15,7 @@ async function getFileList() {
     let changedName = fileNameInfo?.Name ?? '';
     changedName = changedName.replace('-', ' ');
     file.name = changedName;
-    
+
   });
   return filteredList;
 }
@@ -24,16 +24,13 @@ export default async function Home() {
   const fileList = await getFileList();
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        Hello World!
-      </div>
-      <ul>
+      <div className='grid grid-flow-row-dense 2xl:grid-cols-8 xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1'>
         {fileList.map((fileInfo, index) => {
           return (
             <IconInfo key={index} {...fileInfo} ></IconInfo>
           );
         })}
-      </ul>
+      </div>
     </main>
   )
 }
