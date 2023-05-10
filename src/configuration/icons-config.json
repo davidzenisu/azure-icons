@@ -1,0 +1,30 @@
+{
+    "exclude": {
+        "parents": [
+            "ai + machine learning",
+            "azure ecosystem",
+            "azure stack",
+            "intune",
+            "iot",
+            "management + governance",
+            "migrate",
+            "migration",
+            "mixed reality",
+            "mobile"
+        ],
+        "names": [
+            "route filters"
+        ]
+    },
+    "include": {
+        "parents": [
+            "containers",
+            "networking",
+            "storage",
+            "web"
+        ],
+        "names": [
+            "Kubernetes"
+        ]
+    }
+}
