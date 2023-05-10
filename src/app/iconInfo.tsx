@@ -12,7 +12,7 @@ const IconInfo = ({ name, parent, path }: { name: string, parent: string, path: 
           alt={name}
         />
       </div>
-      <div className='flex-initial text-xl'>{parent}</div>
+      {/* <div className='flex-initial text-xl'>{parent}</div> */}
       <div className='flex-initials text-xl'>{name}</div>
     </div>
   );
