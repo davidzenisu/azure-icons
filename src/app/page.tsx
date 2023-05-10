@@ -1,10 +1,12 @@
 import CrawlDirectory from '@/logic/filecrawler';
 import path from 'path';
+import IconInfo from './iconInfo';
 
 async function getFileList() {
-  const postsDirectory = path.join(process.cwd(), 'public', '');
+  const postsDirectory = path.join(process.cwd(), 'public', 'icons');
   const fileList = await CrawlDirectory(postsDirectory);
-  return fileList;
+  const filteredList = fileList.filter(f => f.name.includes('svg'));
+  return filteredList;
 }
 
 export default async function Home() {
@@ -14,6 +16,13 @@ export default async function Home() {
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         Hello World!
       </div>
+      <ul>
+        {fileList.map((fileInfo, index) => {
+          return (
+            <IconInfo key={index} {...fileInfo} ></IconInfo>
+          );
+        })}
+      </ul>
     </main>
   )
 }

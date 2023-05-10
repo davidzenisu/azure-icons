@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 
-interface FileInfo {
+export interface FileInfo {
     name: string
     parent: string
     path: string
+    type: string
 }
 
 async function CrawlDirectory(dir: string) {
@@ -20,7 +21,8 @@ async function CrawlDirectory(dir: string) {
             const fileInfo = {
                 name: fileName,
                 parent: path.basename(path.dirname(filePath)),
-                path: filePath
+                path: filePath,
+                type: path.extname(fileName)
             };
             results.push(fileInfo);
         }
