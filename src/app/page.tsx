@@ -59,8 +59,6 @@ async function getFileList() {
     ))
   );
 
-  console.log(filteredList.map(f => f.name));
-  console.log(`So many icons: ${filteredList.length}`);
   return filteredList;
 }
 
