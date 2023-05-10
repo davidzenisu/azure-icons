@@ -2,6 +2,7 @@ import CrawlDirectory from '@/logic/filecrawler';
 import path from 'path';
 import IconInfo from './iconInfo';
 import iconConfig from '@/configuration/icons-config.json';
+import IconList from './iconList';
 
 async function getFileList() {
   const publicDirectory = path.join(process.cwd(), 'public');
@@ -59,20 +60,16 @@ async function getFileList() {
     ))
   );
 
+  console.log(filteredList.map(f => f.name));
+  console.log(`So many icons: ${filteredList.length}`);
   return filteredList;
 }
 
 export default async function Home() {
   const fileList = await getFileList();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className='grid grid-flow-row-dense 2xl:grid-cols-8 xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1'>
-        {fileList.map((fileInfo, index) => {
-          return (
-            <IconInfo key={index} {...fileInfo} ></IconInfo>
-          );
-        })}
-      </div>
+    <main className="flex min-h-screen flex-col items-center justify-between p-16">
+      <IconList fileList={fileList}></IconList>
     </main>
   )
 }
