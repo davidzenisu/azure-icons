@@ -3,9 +3,20 @@ import path from 'path';
 import IconInfo from './iconInfo';
 
 async function getFileList() {
-  const postsDirectory = path.join(process.cwd(), 'public', 'icons');
+  const publicDirectory = path.join(process.cwd(), 'public');
+  const postsDirectory = path.join(publicDirectory, 'icons');
   const fileList = await CrawlDirectory(postsDirectory);
-  const filteredList = fileList.filter(f => f.name.includes('svg'));
+  const filteredList = fileList.filter(f => f.type === '.svg');
+  // fix names of files and path
+  filteredList.forEach(file => {
+    file.path = file.path.replace(publicDirectory, '');
+    const fileRegex = /\d+-icon-service-(?<Name>.*)\.svg/u;
+    const fileNameInfo = fileRegex.exec(file.name)?.groups;
+    let changedName = fileNameInfo?.Name ?? '';
+    changedName = changedName.replace('-', ' ');
+    file.name = changedName;
+    
+  });
   return filteredList;
 }
 
