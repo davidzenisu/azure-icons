@@ -23,7 +23,7 @@ const IconList = ({ fileList }: { fileList: FileInfo[] }) => {
                 <input type='text' className='caret-black bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' onChange={handleFilterChange}></input>
             </div>
 
-            <div className='grid grid-flow-row-dense w-full 2xl:grid-cols-8 xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1'>
+            <div className='grid grid-flow-row-dense w-full grid-cols-2 2xl:grid-cols-10 xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3'>
                 {filteredFiles.map((fileInfo, index) => {
                     return (
                         <IconInfo key={index} {...fileInfo} ></IconInfo>
