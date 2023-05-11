@@ -73,7 +73,7 @@ async function getFileList() {
 export default async function Home() {
   const fileList = await getFileList();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-16">
+    <main className="flex min-h-screen flex-col items-center justify-between p-4">
       <IconList fileList={fileList}></IconList>
     </main>
   )
