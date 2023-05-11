@@ -61,5 +61,14 @@
             "Visual Studio Code",
             "Bicep"
         ]
+    },
+    "replacements": {
+        "Virtual Machine": "Virtual Machines",
+        "Kubernetes Services": "Kubernetes",
+        "Cache Redis": "Redis Cache",
+        "Azure Service Bus": "Service Bus",
+        "Traffic Manager Profiles": "Traffic Manager",
+        "Public IP Addresses": "Public IP",
+        "Front Door and CDN Profiles": "Front Door"
     }
 }

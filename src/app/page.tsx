@@ -60,6 +60,11 @@ async function getFileList() {
     ))
   );
 
+  // final name replacements
+  fileList.forEach(file => {
+    file.name = (iconConfig?.replacements as any)[file.name] ?? file.name;
+  });
+
   console.log(filteredList.map(f => f.name));
   console.log(`So many icons: ${filteredList.length}`);
   return filteredList;
